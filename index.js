@@ -1,4 +1,4 @@
-
+// listando todos os dados no backend
 async function listar(){ 
 try{
     const lista = await fetch('http://localhost:9000/listar.php')
