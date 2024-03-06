@@ -1,21 +1,13 @@
 <?php 
+require 'Pessoa.php';
 
+class Estagiario extends Pessoa { 
 
-class Estagiario { 
-
-    public function __construct(public readonly string $nome , public readonly string $data)
+    public function __construct($nome,$data)
     {
-        // echo $nome,$data ; 
-       $this->validaDados($nome,$data); 
+        parent::__construct($nome,$data);
+    
     }
 
-    public function validaDados($nome,$data){ 
-        if($nome=='' && $data=='' ){
-            echo "Dados invalidos";
-            // throw new \Exception("Erro");
-            exit();
-        }
-       
-    }
-    
+
 }

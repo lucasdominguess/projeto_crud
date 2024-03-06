@@ -6,14 +6,24 @@ $nome = $_POST['name'];
 $data = $_POST['data'];
 
 
-$cad = new Estagiario($nome,$data);
-// if (!$cad->validaDados($nome,$data)){ 
-    
-// }
 
+
+try {
+    $cad = new Estagiario($nome,$data);
+  
+} catch (\Throwable $th) {
+
+    $resposta =['status'=>'fail','msg'=>$th->getMessage()];
+    $re_json= json_encode($resposta);
+    echo $re_json ; 
+   
+    exit();
+}
 
 
 $db = new Sql(); 
 $stmt=$db->query("insert into estagiario(nome,nascimento) values('$nome','$data')");
 
-
+$resposta =['status'=>'ok','msg'=>"Cadastro realizado!"];
+$re_json= json_encode($resposta);
+echo $re_json ; 
