@@ -21,7 +21,7 @@ try {
 
 
 $db = new Sql(); 
-$stmt=$db->query("insert into estagiarios(nome,data_nascimento) values('$nome','$data')");
+$stmt=$db->query("insert into estagiarios(nome,nascimento) values('$nome','$data')");
 
 $resposta =['status'=>'ok','msg'=>"Cadastro realizado!"];
 $re_json= json_encode($resposta);
